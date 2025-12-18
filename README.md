@@ -107,6 +107,7 @@ A: Generally yes, but strict anti-cheat (Warden) on some servers *might* flag th
 
 ## 🏆 Credits
 
+- **Zendevve** - Project curator, maintenance, and the "Zen" vision.
 - **[ConsoleXP](https://github.com/leoaviana/ConsoleXP)** by Leo Aviana - The incredible engine that makes this possible.
 - **Original ActionCam** by freakingblangks - The inspiration for the simplified UI.
 - **[DynamicCamLK](https://github.com/leoaviana/DynamicCamLK)** - For the preset logic structure.
