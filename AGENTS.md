@@ -100,6 +100,9 @@ If no new rule is detected → do not update the file.
 - Questions only for architecture blockers not covered by ADR
 - Report only when task is complete
 
+### GitHub Metadata
+- Topics must be strict slugs: lowercase, alphanumeric, and hyphens ONLY. (No dots, e.g. use `wow-335a` not `3.3.5a`).
+
 ### Lua (ConsoleXP Wrapper)
 - **Dependency**: Always check for `cxp_` or `test_` CVars before usage.
 - **Graceful Failure**: If ConsoleXP CVars are missing, print a single warning and disable features; DO NOT CRASH.

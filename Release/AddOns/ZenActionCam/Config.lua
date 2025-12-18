@@ -92,6 +92,44 @@ shoulderSlider:SetPoint("TOPLEFT", 16, yOffset)
 local pitchSlider = CreateSlider(panel, "DAC_PitchSlide", "Pitch Offset", 0, 1, 0.05, "test_cameraDynamicPitchBaseFovPad")
 pitchSlider:SetPoint("LEFT", shoulderSlider, "RIGHT", 40, 0)
 
+-- Head Bob Slider
+local bobSlider = CreateSlider(panel, "DAC_BobSlide", "Head Bob", 0, 2, 0.1, "test_cameraHeadMovementStrength")
+bobSlider:SetPoint("LEFT", pitchSlider, "RIGHT", 40, 0)
+
+
+-- Toggles Section
+yOffset = yOffset - 50
+
+local function CreateCheckbox(parent, name, label, tooltip, cvar)
+    local cb = CreateFrame("CheckButton", name, parent, "InterfaceOptionsCheckButtonTemplate")
+    cb:SetPoint("TOPLEFT", 16, yOffset)
+    _G[name .. "Text"]:SetText(label)
+
+    cb:SetScript("OnShow", function(self)
+        self:SetChecked(GetCVar(cvar) == "1")
+    end)
+
+    cb:SetScript("OnClick", function(self)
+        SetCVar(cvar, self:GetChecked() and "1" or "0")
+    end)
+
+    cb:SetScript("OnEnter", function(self)
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:SetText(label, 1, 1, 1)
+        GameTooltip:AddLine(tooltip, nil, nil, nil, true)
+        GameTooltip:Show()
+    end)
+
+    cb:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
+    return cb
+end
+
+local focusToggle = CreateCheckbox(panel, "DAC_FocusToggle", "Enable Target Focus", "Automatically rotates camera to face your target.\n\nNote: This may disable standard Right-Click turning while you have a target.", "test_cameraTargetFocusEnemyEnable")
+
+yOffset = yOffset - 30
+local actionToggle = CreateCheckbox(panel, "DAC_ActionToggle", "Enable Action Targeting", "Automatically selects the enemy you are looking at (Soft Targeting).", "cxp_enableActionTarget")
+
 -- Open Config Command
 SLASH_ZACCONFIG1 = "/zac config"
 SlashCmdList["ZACCONFIG"] = function()
