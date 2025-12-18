@@ -1,0 +1,10 @@
+## Interface: 30300
+## Title: Zen Action Cam
+## Notes: A lightweight wrapper for ConsoleXP camera features. Use /zac to open options.
+## Author: Antigravity (Original by freakingblangks)
+## Version: 2.0.0
+## SavedVariables: ZenActionCamDB
+
+Presets.lua
+Config.lua
+Core.lua
